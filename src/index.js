@@ -1,17 +1,17 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import ReactDOM from 'react-dom';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./pages/home/home.jsx";  // Importa o componente Home
+import Pesquisa from "./pages/pesquisa/pesquisa.jsx";  // Importa o componente Pesquisa
+import "./styles/global.css";  // Importa estilos globais CSS
 
+// Cria o root do ReactDOM para renderizar a aplicação
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+root.render(  
+  <BrowserRouter>  
+      <Routes>  
+          <Route path="/" element={<Home />} />  {/* Rota para a página inicial, renderiza o componente Home */}
+          <Route path="/pesquisa" element={<Pesquisa />} />  {/* Rota para a página de pesquisa, renderiza o componente Pesquisa */}
+      </Routes>
+  </BrowserRouter>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
